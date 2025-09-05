@@ -1,0 +1,17 @@
+{
+  "name": "@mia-cx/obsidian-theme-mcx",
+  "version": "0.0.1",
+  "description": "Opinionated theme for Obsidian & Quartz to optimize for editing & legibility.",
+  "main": "index.js",
+  "scripts": {
+    "build": "make build",
+    "snippets": "make snippets"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "AGPL-3.0-or-later",
+  "packageManager": "pnpm@10.15.0",
+  "devDependencies": {
+    "sass": "^1.92.0"
+  }
+}
