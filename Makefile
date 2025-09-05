@@ -3,10 +3,9 @@ build: ## Build CSS
 	sass src/base.scss theme.css --no-source-map --no-charset
 	sass src/base.scss obsidian.css --no-source-map --no-charset
 
-.PHONY: watch
-watch: ## Watch for changes and build CSS
+.PHONY: dev
+dev: ## Watch for changes and build CSS
 	sass src/base.scss theme.css --no-source-map --no-charset --watch
-	sass src/base.scss obsidian.css --no-source-map --no-charset --watch
 
 # .PHONY: snippets
 # snippets: ## Build CSS for snippets
