@@ -5,7 +5,7 @@ build: ## Build CSS
 
 .PHONY: dev
 dev: ## Watch for changes and build CSS
-	sass src/base.scss theme.css --no-source-map --no-charset --watch
+	sass src/base.scss theme.css --no-source-map --no-charset --watch --color
 
 # .PHONY: snippets
 # snippets: ## Build CSS for snippets
