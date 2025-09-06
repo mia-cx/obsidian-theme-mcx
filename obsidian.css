@@ -1,0 +1,5 @@
+.markdown-source-view {
+  --font-text: var(--font-text-override), var(--font-text-theme), var(--font-interface);
+  --font-text-theme: argon.$font-monaspace-argon;
+  --radius: argon.$radius;
+}

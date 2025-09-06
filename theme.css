@@ -1,0 +1,6 @@
+body {
+  --font-interface-theme: Archivo;
+}
+body .workspace-tab-container:not(:has([data-type=markdown], [data-type=bases])) {
+  font-variation-settings: "wdth" 115;
+}
