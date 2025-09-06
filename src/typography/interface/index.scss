@@ -1,0 +1,10 @@
+@use "sass:map";
+@use "../fonts";
+
+body {
+	--font-interface-theme: #{fonts.$archivo};
+	.workspace-tab-container:not(:has([data-type="markdown"], [data-type="bases"])) {
+		font-variation-settings: "wdth" 115;
+	}
+	// --font-interface-theme: "Archivo";
+}
