@@ -1,4 +1,4 @@
-// @use "sass:map";
+@use "sass:map";
 
 $margin: (
 	xxs: 0.125rem,
@@ -32,3 +32,59 @@ $spacing: (
 	xxl: 4rem,
 	xxxl: 6rem,
 );
+
+%h1 {
+	--p-spacing: #{map.get($padding, xxl)};
+}
+
+%h2 {
+	--p-spacing: #{map.get($padding, xl)};
+}
+
+%h3 {
+	--p-spacing: #{map.get($padding, lg)};
+}
+
+%h4 {
+	--p-spacing: #{map.get($padding, md)};
+}
+
+%h5 {
+	--p-spacing: #{map.get($padding, md)};
+}
+
+%h6 {
+	--p-spacing: #{map.get($padding, sm)};
+}
+
+.markdown-source-view {
+	.cm-line {
+		&.HyperMD-header {
+			@extend %heading !optional;
+			&.HyperMD-header-1 {
+				// h1
+				@extend %h1 !optional;
+			}
+			&.HyperMD-header-2 {
+				// h2
+				@extend %h2 !optional;
+			}
+			&.HyperMD-header-3 {
+				// h3
+				@extend %h3 !optional;
+			}
+			&.HyperMD-header-4 {
+				// h4
+				@extend %h4 !optional;
+			}
+			&.HyperMD-header-5 {
+				// h5
+				@extend %h5 !optional;
+			}
+			&.HyperMD-header-6 {
+				// h6
+				@extend %h6 !optional;
+			}
+		}
+	}
+}

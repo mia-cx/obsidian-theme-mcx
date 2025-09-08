@@ -1,26 +1,111 @@
-@use "../fonts.scss";
+@use "../fonts";
 @use "sass:map";
+@use "../spacing";
+@use "../scaling";
 
 // TODO margins & padding
 
 .markdown-source-view {
 	%overline {
-		color: lime;
+		padding-top: var(--pt, 0rem);
+		padding-bottom: var(--pb, 0rem);
+		&:has(+ * + %h1) {
+			--pt: #{map.get(spacing.$padding, xxl)};
+		}
+		&:has(+ * + %h2) {
+			--pt: #{map.get(spacing.$padding, xl)};
+		}
+		&:has(+ * + %h3) {
+			--pt: #{map.get(spacing.$padding, lg)};
+		}
+		&:has(+ * + %h4) {
+			--pt: #{map.get(spacing.$padding, md)};
+		}
+		&:has(+ * + %h5) {
+			--pt: #{map.get(spacing.$padding, md)};
+		}
+		&:has(+ * + %h6) {
+			--pt: #{map.get(spacing.$padding, sm)};
+		}
 	}
-	%empty-line-overline {
-		background-color: lime;
+	
+	%subheading {
+		padding-top: var(--pt, 0rem) !important;
+		padding-bottom: var(--pb, 0rem) !important;
+		&:where(%h1 + * + *) {
+			--pb: #{map.get(spacing.$padding, lg)};
+		}
+		&:where(%h2 + * + *) {
+			--pt: #{map.get(spacing.$padding, xs)};
+			--pb: #{map.get(spacing.$padding, lg)};
+		}
+		&:where(%h3 + * + *) {
+			--pt: #{map.get(spacing.$padding, xs)};
+			--pb: #{map.get(spacing.$padding, md)};
+		}
+		&:where(%h4 + * + *) {
+			--pt: #{map.get(spacing.$padding, xxs)};
+			--pb: #{map.get(spacing.$padding, md)};
+		}
+		&:where(%h5 + * + *) {
+			--pt: #{map.get(spacing.$padding, xxs)};
+			--pb: #{map.get(spacing.$padding, md)};
+		}
+		&:where(%h6 + * + *) {
+			--pt: #{map.get(spacing.$padding, xxs)};
+			--pb: #{map.get(spacing.$padding, sm)};
+		}
 	}
+
+	&.is-live-preview {
+		%empty-line-overline {
+			&:not(.cm-active) {
+				max-height: 0rem;
+			}
+		}
+		%empty-line-subheading {
+			&:not(.cm-active) {
+				max-height: 0rem;
+			}
+		}
+	}
+
+	%overline {
+		--font-text-size: #{map.get(scaling.$fontSize, overline)};
+		font-size: var(--font-text-size);
+
+		--font-text-theme: #{fonts.$fira-code};
+		--font-text: var(--font-text-override), var(--font-text-theme),
+			var(--font-default);
+		--font-weight: 100;
+		font-family: var(--font-text);
+		text-transform: uppercase;
+
+		padding-top: var(--p-spacing, 0rem);
+		--p-spacing: 0rem;
+	}
+
 	%heading-with-overline {
-		color: lime;
+		--p-spacing: #{map.get(spacing.$padding, xxs)};
 	}
-	%subtitle {
-		color: cyan;
+
+	%subheading {
+		--font-text-size: #{map.get(scaling.$fontSize, subheading)};
+		font-size: var(--font-text-size);
+
+		--font-text-theme: #{map.get(fonts.$monaspace, radon)};
+		--font-text: var(--font-text-override), var(--font-text-theme),
+			var(--font-default);
+		--font-weight: 100;
+		font-family: var(--font-text);
+		text-transform: uppercase;
+
+		padding-top: map.get(spacing.$padding, xxs);
 	}
-	%empty-line-subtitle {
-		background-color: cyan;
-	}
-	%heading-with-subtitle {
-		color: cyan;
+
+	// TODO get rid of caret (>) and the blue line at the start of the overline & subheading blockquotes
+
+	%heading-with-subheading {
 	}
 }
 
@@ -34,13 +119,13 @@
 	%heading-with-overline {
 		color: lime;
 	}
-	%subtitle {
+	%subheading {
 		color: cyan;
 	}
-	%empty-line-subtitle {
+	%empty-line-subheading {
 		background-color: cyan;
 	}
-	%heading-with-subtitle {
+	%heading-with-subheading {
 		color: cyan;
 	}
 }
@@ -118,7 +203,7 @@
 							> br:only-child
 					) {
 					// heading followed by a top-level blockquote followed by a empty line
-					@extend %heading-with-subtitle
+					@extend %heading-with-subheading
 							!optional;
 				}
 			}
@@ -129,14 +214,14 @@
 			&:has(+ %blockquote-top-level) {
 				&:has(+ * + .cm-line > br:only-child) {
 					// empty line after a heading followed by a top-level blockquote
-					@extend %empty-line-subtitle !optional;
+					@extend %empty-line-subheading !optional;
 				}
 			}
 			+ %blockquote-top-level {
 				// top-level blockquote after a heading
 				&:has(+ %br-in-empty-line) {
 					// empty line after a heading followed by a top-level blockquote
-					@extend %subtitle !optional;
+					@extend %subheading !optional;
 				}
 			}
 		}

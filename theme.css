@@ -601,25 +601,28 @@ body .workspace-tab-container .metadata-container, body .workspace-tab-container
   --font-width: 115;
 }
 
-.markdown-source-view .metadata-container {
-  --font-text-theme: var(--font-interface-theme);
-  --font-text: var(--font-text-override), var(--font-text-theme), var(--font-default);
-  font-family: var(--font-text);
+.cm-line.HyperMD-header.HyperMD-header-1, .markdown-source-view .cm-line.HyperMD-header.HyperMD-header-1 {
+  --p-spacing: 2.5rem;
 }
-.markdown-source-view {
-  --font-text: var(--font-text-override), var(--font-text-theme), var(--font-default);
+
+.cm-line.HyperMD-header.HyperMD-header-2, .markdown-source-view .cm-line.HyperMD-header.HyperMD-header-2 {
+  --p-spacing: 1.5rem;
 }
-.markdown-source-view:not(.is-live-preview) {
-  --font-text-theme: Monaspace Argon;
-  --h1-font: Google Sans Code;
-  --h2-font: Monaspace Argon;
-  --h3-font: Monaspace Xenon;
-  --h4-font: Fira Code;
-  --h5-font: Fira Code;
-  --h6-font: Fira Code;
+
+.cm-line.HyperMD-header.HyperMD-header-3, .markdown-source-view .cm-line.HyperMD-header.HyperMD-header-3 {
+  --p-spacing: 1rem;
 }
-body {
-  --h1-size: 2.5rem;
+
+.cm-line.HyperMD-header.HyperMD-header-4, .markdown-source-view .cm-line.HyperMD-header.HyperMD-header-4 {
+  --p-spacing: 0.75rem;
+}
+
+.cm-line.HyperMD-header.HyperMD-header-5, .markdown-source-view .cm-line.HyperMD-header.HyperMD-header-5 {
+  --p-spacing: 0.75rem;
+}
+
+.cm-line.HyperMD-header.HyperMD-header-6, .markdown-source-view .cm-line.HyperMD-header.HyperMD-header-6 {
+  --p-spacing: 0.5rem;
 }
 
 body {
@@ -633,34 +636,87 @@ body {
   --overline-size: 0.925rem;
 }
 
-* {
-  font-variation-settings: "wght" var(--font-weight, 400), "wdth" var(--font-width, 100), "slnt" var(--font-slant, 0);
-  font-feature-settings: "calt" var(--texture-healing, 1), "liga" var(--mcx-ligatures, 1), "ss01" var(--mcx-ligatures, 1), "ss02" var(--ligatures, 1), "ss03" var(--ligatures, 1), "ss04" var(--ligatures, 1), "ss05" var(--ligatures, 1), "ss06" var(--ligatures, 1), "ss07" var(--ligatures, 1), "ss08" var(--mcx-ligatures, 1), "ss09" var(--mcx-ligatures, 1), "ss10" var(--mcx-ligatures, 1);
-}
-
-body {
-  --file-line-width: 80ch;
-}
-
 .markdown-source-view .cm-line.HyperMD-quote.HyperMD-quote-1:has(+ .cm-line > br:only-child):first-child:has(+ * + .cm-line.HyperMD-header), .markdown-source-view .cm-line:has(> br:only-child) + .cm-line.HyperMD-quote.HyperMD-quote-1:has(+ .cm-line > br:only-child):has(+ * + .cm-line.HyperMD-header) {
-  color: lime;
+  padding-top: var(--pt, 0rem);
+  padding-bottom: var(--pb, 0rem);
 }
-.markdown-source-view .cm-line.HyperMD-quote.HyperMD-quote-1:has(+ .cm-line > br:only-child):first-child + *:has(+ .cm-line.HyperMD-header), .markdown-source-view .cm-line:has(> br:only-child) + .cm-line.HyperMD-quote.HyperMD-quote-1:has(+ .cm-line > br:only-child) + *:has(+ .cm-line.HyperMD-header) {
-  background-color: lime;
+.markdown-source-view .cm-line.HyperMD-quote.HyperMD-quote-1:has(+ * + .cm-line.HyperMD-header.HyperMD-header-1):has(+ .cm-line > br:only-child):first-child:has(+ * + .cm-line.HyperMD-header), .markdown-source-view .cm-line:has(> br:only-child) + .cm-line.HyperMD-quote.HyperMD-quote-1:has(+ * + .cm-line.HyperMD-header.HyperMD-header-1):has(+ .cm-line > br:only-child):has(+ * + .cm-line.HyperMD-header) {
+  --pt: 2.5rem;
 }
-.markdown-source-view .cm-line.HyperMD-quote.HyperMD-quote-1:has(+ .cm-line > br:only-child):first-child + * + .cm-line.HyperMD-header, .markdown-source-view .cm-line:has(> br:only-child) + .cm-line.HyperMD-quote.HyperMD-quote-1:has(+ .cm-line > br:only-child) + * + .cm-line.HyperMD-header {
-  color: lime;
+.markdown-source-view .cm-line.HyperMD-quote.HyperMD-quote-1:has(+ * + .cm-line.HyperMD-header.HyperMD-header-2):has(+ .cm-line > br:only-child):first-child:has(+ * + .cm-line.HyperMD-header), .markdown-source-view .cm-line:has(> br:only-child) + .cm-line.HyperMD-quote.HyperMD-quote-1:has(+ * + .cm-line.HyperMD-header.HyperMD-header-2):has(+ .cm-line > br:only-child):has(+ * + .cm-line.HyperMD-header) {
+  --pt: 1.5rem;
+}
+.markdown-source-view .cm-line.HyperMD-quote.HyperMD-quote-1:has(+ * + .cm-line.HyperMD-header.HyperMD-header-3):has(+ .cm-line > br:only-child):first-child:has(+ * + .cm-line.HyperMD-header), .markdown-source-view .cm-line:has(> br:only-child) + .cm-line.HyperMD-quote.HyperMD-quote-1:has(+ * + .cm-line.HyperMD-header.HyperMD-header-3):has(+ .cm-line > br:only-child):has(+ * + .cm-line.HyperMD-header) {
+  --pt: 1rem;
+}
+.markdown-source-view .cm-line.HyperMD-quote.HyperMD-quote-1:has(+ * + .cm-line.HyperMD-header.HyperMD-header-4):has(+ .cm-line > br:only-child):first-child:has(+ * + .cm-line.HyperMD-header), .markdown-source-view .cm-line:has(> br:only-child) + .cm-line.HyperMD-quote.HyperMD-quote-1:has(+ * + .cm-line.HyperMD-header.HyperMD-header-4):has(+ .cm-line > br:only-child):has(+ * + .cm-line.HyperMD-header) {
+  --pt: 0.75rem;
+}
+.markdown-source-view .cm-line.HyperMD-quote.HyperMD-quote-1:has(+ * + .cm-line.HyperMD-header.HyperMD-header-5):has(+ .cm-line > br:only-child):first-child:has(+ * + .cm-line.HyperMD-header), .markdown-source-view .cm-line:has(> br:only-child) + .cm-line.HyperMD-quote.HyperMD-quote-1:has(+ * + .cm-line.HyperMD-header.HyperMD-header-5):has(+ .cm-line > br:only-child):has(+ * + .cm-line.HyperMD-header) {
+  --pt: 0.75rem;
+}
+.markdown-source-view .cm-line.HyperMD-quote.HyperMD-quote-1:has(+ * + .cm-line.HyperMD-header.HyperMD-header-6):has(+ .cm-line > br:only-child):first-child:has(+ * + .cm-line.HyperMD-header), .markdown-source-view .cm-line:has(> br:only-child) + .cm-line.HyperMD-quote.HyperMD-quote-1:has(+ * + .cm-line.HyperMD-header.HyperMD-header-6):has(+ .cm-line > br:only-child):has(+ * + .cm-line.HyperMD-header) {
+  --pt: 0.5rem;
 }
 .markdown-source-view .cm-line.HyperMD-header + .cm-line:has(> br:only-child) + .cm-line.HyperMD-quote.HyperMD-quote-1:has(+ .cm-line > br:only-child) {
-  color: cyan;
+  padding-top: var(--pt, 0rem) !important;
+  padding-bottom: var(--pb, 0rem) !important;
 }
-.markdown-source-view .cm-line.HyperMD-header + .cm-line:has(+ .cm-line.HyperMD-quote.HyperMD-quote-1):has(+ * + .cm-line > br:only-child):has(> br:only-child) {
-  background-color: cyan;
+.markdown-source-view .cm-line.HyperMD-header + .cm-line:has(> br:only-child) + .cm-line.HyperMD-quote.HyperMD-quote-1:where(.cm-line.HyperMD-header.HyperMD-header-1 + * + *):has(+ .cm-line > br:only-child) {
+  --pb: 1rem;
 }
-.markdown-source-view .cm-line.HyperMD-header:has(+ .cm-line > br:only-child):has(+ * + .cm-line.HyperMD-quote.HyperMD-quote-1):has(+ * + .cm-line.HyperMD-quote.HyperMD-quote-1 + .cm-line > br:only-child) {
-  color: cyan;
+.markdown-source-view .cm-line.HyperMD-header + .cm-line:has(> br:only-child) + .cm-line.HyperMD-quote.HyperMD-quote-1:where(.cm-line.HyperMD-header.HyperMD-header-2 + * + *):has(+ .cm-line > br:only-child) {
+  --pt: 0.25rem;
+  --pb: 1rem;
 }
-
+.markdown-source-view .cm-line.HyperMD-header + .cm-line:has(> br:only-child) + .cm-line.HyperMD-quote.HyperMD-quote-1:where(.cm-line.HyperMD-header.HyperMD-header-3 + * + *):has(+ .cm-line > br:only-child) {
+  --pt: 0.25rem;
+  --pb: 0.75rem;
+}
+.markdown-source-view .cm-line.HyperMD-header + .cm-line:has(> br:only-child) + .cm-line.HyperMD-quote.HyperMD-quote-1:where(.cm-line.HyperMD-header.HyperMD-header-4 + * + *):has(+ .cm-line > br:only-child) {
+  --pt: 0.125rem;
+  --pb: 0.75rem;
+}
+.markdown-source-view .cm-line.HyperMD-header + .cm-line:has(> br:only-child) + .cm-line.HyperMD-quote.HyperMD-quote-1:where(.cm-line.HyperMD-header.HyperMD-header-5 + * + *):has(+ .cm-line > br:only-child) {
+  --pt: 0.125rem;
+  --pb: 0.75rem;
+}
+.markdown-source-view .cm-line.HyperMD-header + .cm-line:has(> br:only-child) + .cm-line.HyperMD-quote.HyperMD-quote-1:where(.cm-line.HyperMD-header.HyperMD-header-6 + * + *):has(+ .cm-line > br:only-child) {
+  --pt: 0.125rem;
+  --pb: 0.5rem;
+}
+.markdown-source-view.is-live-preview .cm-line.HyperMD-quote.HyperMD-quote-1:has(+ .cm-line > br:only-child):first-child + :not(.cm-active):has(+ .cm-line.HyperMD-header), .markdown-source-view.is-live-preview .cm-line:has(> br:only-child) + .cm-line.HyperMD-quote.HyperMD-quote-1:has(+ .cm-line > br:only-child) + :not(.cm-active):has(+ .cm-line.HyperMD-header) {
+  max-height: 0rem;
+}
+.markdown-source-view.is-live-preview .cm-line.HyperMD-header + .cm-line:not(.cm-active):has(+ .cm-line.HyperMD-quote.HyperMD-quote-1):has(+ * + .cm-line > br:only-child):has(> br:only-child) {
+  max-height: 0rem;
+}
+.markdown-source-view .cm-line.HyperMD-quote.HyperMD-quote-1:has(+ .cm-line > br:only-child):first-child:has(+ * + .cm-line.HyperMD-header), .markdown-source-view .cm-line:has(> br:only-child) + .cm-line.HyperMD-quote.HyperMD-quote-1:has(+ .cm-line > br:only-child):has(+ * + .cm-line.HyperMD-header) {
+  --font-text-size: 0.925rem;
+  font-size: var(--font-text-size);
+  --font-text-theme: Fira Code;
+  --font-text: var(--font-text-override), var(--font-text-theme),
+  	var(--font-default);
+  --font-weight: 100;
+  font-family: var(--font-text);
+  text-transform: uppercase;
+  padding-top: var(--p-spacing, 0rem);
+  --p-spacing: 0rem;
+}
+.markdown-source-view .cm-line.HyperMD-quote.HyperMD-quote-1:has(+ .cm-line > br:only-child):first-child + * + .cm-line.HyperMD-header, .markdown-source-view .cm-line:has(> br:only-child) + .cm-line.HyperMD-quote.HyperMD-quote-1:has(+ .cm-line > br:only-child) + * + .cm-line.HyperMD-header {
+  --p-spacing: 0.125rem;
+}
+.markdown-source-view .cm-line.HyperMD-header + .cm-line:has(> br:only-child) + .cm-line.HyperMD-quote.HyperMD-quote-1:has(+ .cm-line > br:only-child) {
+  --font-text-size: 0.875rem;
+  font-size: var(--font-text-size);
+  --font-text-theme: Monaspace Radon;
+  --font-text: var(--font-text-override), var(--font-text-theme),
+  	var(--font-default);
+  --font-weight: 100;
+  font-family: var(--font-text);
+  text-transform: uppercase;
+  padding-top: 0.125rem;
+}
 .markdown-reading-view .cm-line.HyperMD-quote.HyperMD-quote-1:has(+ .cm-line > br:only-child):first-child:has(+ * + .cm-line.HyperMD-header), .markdown-reading-view .cm-line:has(> br:only-child) + .cm-line.HyperMD-quote.HyperMD-quote-1:has(+ .cm-line > br:only-child):has(+ * + .cm-line.HyperMD-header) {
   color: lime;
 }
@@ -678,4 +734,30 @@ body {
 }
 .markdown-reading-view .cm-line.HyperMD-header:has(+ .cm-line > br:only-child):has(+ * + .cm-line.HyperMD-quote.HyperMD-quote-1):has(+ * + .cm-line.HyperMD-quote.HyperMD-quote-1 + .cm-line > br:only-child) {
   color: cyan;
+}
+
+.markdown-source-view .metadata-container {
+  --font-text-theme: var(--font-interface-theme);
+  --font-text: var(--font-text-override), var(--font-text-theme), var(--font-default);
+  font-family: var(--font-text);
+}
+.markdown-source-view {
+  --font-text: var(--font-text-override), var(--font-text-theme), var(--font-default);
+}
+.markdown-source-view:not(.is-live-preview) {
+  --font-text-theme: Monaspace Argon;
+  --h1-font: Google Sans Code;
+  --h2-font: Monaspace Argon;
+  --h3-font: Monaspace Xenon;
+  --h4-font: Fira Code;
+  --h5-font: Fira Code;
+  --h6-font: Fira Code;
+}
+* {
+  font-variation-settings: "wght" var(--font-weight, 400), "wdth" var(--font-width, 100), "slnt" var(--font-slant, 0);
+  font-feature-settings: "calt" var(--texture-healing, 1), "liga" var(--mcx-ligatures, 1), "ss01" var(--mcx-ligatures, 1), "ss02" var(--ligatures, 1), "ss03" var(--ligatures, 1), "ss04" var(--ligatures, 1), "ss05" var(--ligatures, 1), "ss06" var(--ligatures, 1), "ss07" var(--ligatures, 1), "ss08" var(--mcx-ligatures, 1), "ss09" var(--mcx-ligatures, 1), "ss10" var(--mcx-ligatures, 1);
+}
+
+body {
+  --file-line-width: 80ch;
 }
