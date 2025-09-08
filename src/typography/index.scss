@@ -6,6 +6,7 @@
 * {
 	font-variation-settings: "wght" var(--font-weight, 400),
 		"wdth" var(--font-width, 100), "slnt" var(--font-slant, 0);
+	font-weight: var(--font-weight, 400);
 	font-feature-settings: "calt" var(--texture-healing, 1),
 		"liga" var(--mcx-ligatures, 1), "ss01" var(--mcx-ligatures, 1),
 		"ss02" var(--ligatures, 1), "ss03" var(--ligatures, 1),

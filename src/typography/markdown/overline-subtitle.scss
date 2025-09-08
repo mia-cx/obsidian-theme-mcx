@@ -6,8 +6,41 @@
 // TODO margins & padding
 
 .markdown-source-view {
+	&.is-live-preview {
+		%overline {
+			--font-text-theme: #{fonts.$archivo};
+			--font-width: 125;
+		}
+		%subheading {
+			--font-text-theme: #{fonts.$kalam};
+			--font-weight: 700;
+		}
+
+		%overline,
+		%subheading {
+			padding-inline-start: 0 !important;
+			&.cm-active {
+				text-indent: 0 !important;
+			}
+			&:before {
+				content: none !important;
+			}
+		}
+	}
+	&:not(.is-live-preview) {
+		%overline {
+			--font-text-theme: #{fonts.$fira-code};
+		}
+		%subheading {
+			--font-text-theme: #{map.get(fonts.$monaspace, radon)};
+		}
+	}
+
 	%overline {
-		padding-top: var(--pt, 0rem);
+		padding-top: var(
+			--pt,
+			0rem
+		) !important; // !!! !important is bad, just using it to get past specificity here.
 		padding-bottom: var(--pb, 0rem);
 		&:has(+ * + %h1) {
 			--pt: #{map.get(spacing.$padding, xxl)};
@@ -28,31 +61,35 @@
 			--pt: #{map.get(spacing.$padding, sm)};
 		}
 	}
-	
+
 	%subheading {
-		padding-top: var(--pt, 0rem) !important;
-		padding-bottom: var(--pb, 0rem) !important;
+		padding-top: var(
+			--pt,
+			0rem
+		) !important; // !!! !important is bad, just using it to get past specificity here.
+		padding-bottom: var(--pb, 0rem);
 		&:where(%h1 + * + *) {
+			--pt: #{map.get(spacing.$padding, md)};
 			--pb: #{map.get(spacing.$padding, lg)};
 		}
 		&:where(%h2 + * + *) {
-			--pt: #{map.get(spacing.$padding, xs)};
+			--pt: #{map.get(spacing.$padding, md)};
 			--pb: #{map.get(spacing.$padding, lg)};
 		}
 		&:where(%h3 + * + *) {
-			--pt: #{map.get(spacing.$padding, xs)};
+			--pt: #{map.get(spacing.$padding, sm)};
 			--pb: #{map.get(spacing.$padding, md)};
 		}
 		&:where(%h4 + * + *) {
-			--pt: #{map.get(spacing.$padding, xxs)};
+			--pt: #{map.get(spacing.$padding, sm)};
 			--pb: #{map.get(spacing.$padding, md)};
 		}
 		&:where(%h5 + * + *) {
-			--pt: #{map.get(spacing.$padding, xxs)};
+			--pt: #{map.get(spacing.$padding, sm)};
 			--pb: #{map.get(spacing.$padding, md)};
 		}
 		&:where(%h6 + * + *) {
-			--pt: #{map.get(spacing.$padding, xxs)};
+			--pt: #{map.get(spacing.$padding, sm)};
 			--pb: #{map.get(spacing.$padding, sm)};
 		}
 	}
@@ -74,7 +111,6 @@
 		--font-text-size: #{map.get(scaling.$fontSize, overline)};
 		font-size: var(--font-text-size);
 
-		--font-text-theme: #{fonts.$fira-code};
 		--font-text: var(--font-text-override), var(--font-text-theme),
 			var(--font-default);
 		--font-weight: 100;
@@ -93,10 +129,8 @@
 		--font-text-size: #{map.get(scaling.$fontSize, subheading)};
 		font-size: var(--font-text-size);
 
-		--font-text-theme: #{map.get(fonts.$monaspace, radon)};
 		--font-text: var(--font-text-override), var(--font-text-theme),
 			var(--font-default);
-		--font-weight: 100;
 		font-family: var(--font-text);
 		text-transform: uppercase;
 
@@ -214,7 +248,8 @@
 			&:has(+ %blockquote-top-level) {
 				&:has(+ * + .cm-line > br:only-child) {
 					// empty line after a heading followed by a top-level blockquote
-					@extend %empty-line-subheading !optional;
+					@extend %empty-line-subheading
+							!optional;
 				}
 			}
 			+ %blockquote-top-level {
