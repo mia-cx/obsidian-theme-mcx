@@ -1,0 +1,27 @@
+@use "sass:map";
+@use "../fonts";
+
+.markdown-source-view {
+
+    .metadata-container {
+        --font-text-theme: var(--font-interface-theme);
+        --font-text: var(--font-text-override), var(--font-text-theme), var(--font-default);
+        font-family: var(--font-text);
+    }
+
+    --font-text: var(--font-text-override), var(--font-text-theme), var(--font-default);
+    &:not(.is-live-preview) {
+        --font-text-theme: #{map.get(fonts.$monaspace, argon)};
+
+        --h1-font: #{fonts.$google-sans-code};
+        --h2-font: #{map.get(fonts.$monaspace, argon)};
+        --h3-font: #{map.get(fonts.$monaspace, xenon)};
+        --h4-font: #{fonts.$fira-code};
+        --h5-font: #{fonts.$fira-code};
+        --h6-font: #{fonts.$fira-code};
+    }
+    &.is-live-preview {
+
+    }
+}
+

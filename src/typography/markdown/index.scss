@@ -1,2 +1,6 @@
-@use "./editor.scss" as editor;
-@use "./preview.scss" as preview;
+@use "./editor" as editor;
+@use "./preview" as preview;
+
+body {
+    --h1-size: 2.5rem;
+}

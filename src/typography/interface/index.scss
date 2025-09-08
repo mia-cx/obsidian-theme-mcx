@@ -3,8 +3,11 @@
 
 body {
 	--font-interface-theme: #{fonts.$archivo};
-	.workspace-tab-container:not(:has([data-type="markdown"], [data-type="bases"])) {
-		font-variation-settings: "wdth" 115;
+	.workspace-tab-container {
+		.metadata-container,
+		&:not(:has([data-type="markdown"], [data-type="bases"])) {
+			--font-width: 115;
+		}
 	}
 	// --font-interface-theme: "Archivo";
 }

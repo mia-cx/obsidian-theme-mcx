@@ -1,0 +1,24 @@
+@use "sass:map";
+
+$fontSize: (
+	hero: 4.25rem,
+	display: 2.5rem,
+	primary: 2rem,
+	secondary: 1.6rem,
+	tertiary: 1.25rem,
+	heading: 1.125rem,
+	base: 1rem,
+	subheading: 0.875rem,
+	overline: 0.925rem,
+);
+
+body {
+	--h1-size: #{map.get($fontSize, primary)};
+	--h2-size: #{map.get($fontSize, secondary)};
+	--h3-size: #{map.get($fontSize, tertiary)};
+	--h4-size: #{map.get($fontSize, heading)};
+	--h5-size: #{map.get($fontSize, heading)};
+	--h6-size: #{map.get($fontSize, heading)};
+    --subheading-size: #{map.get($fontSize, subheading)};
+	--overline-size: #{map.get($fontSize, overline)};
+}
