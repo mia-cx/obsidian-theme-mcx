@@ -1,23 +1,48 @@
 @use "../fonts.scss";
 @use "sass:map";
 
-%overline {
-	color: lime;
+// TODO margins & padding
+
+.markdown-source-view {
+	%overline {
+		color: lime;
+	}
+	%empty-line-overline {
+		background-color: lime;
+	}
+	%heading-with-overline {
+		color: lime;
+	}
+	%subtitle {
+		color: cyan;
+	}
+	%empty-line-subtitle {
+		background-color: cyan;
+	}
+	%heading-with-subtitle {
+		color: cyan;
+	}
 }
-%empty-line-overline {
-	background-color: lime;
-}
-%heading-with-overline {
-	color: lime;
-}
-%subtitle {
-	color: cyan;
-}
-%empty-line-subtitle {
-	background-color: cyan;
-}
-%heading-with-subtitle {
-	color: cyan;
+
+.markdown-reading-view {
+	%overline {
+		color: lime;
+	}
+	%empty-line-overline {
+		background-color: lime;
+	}
+	%heading-with-overline {
+		color: lime;
+	}
+	%subtitle {
+		color: cyan;
+	}
+	%empty-line-subtitle {
+		background-color: cyan;
+	}
+	%heading-with-subtitle {
+		color: cyan;
+	}
 }
 
 .cm-line {
@@ -44,7 +69,8 @@
 				}
 				+ * + %heading {
 					// single line top-level blockquote followed by a heading
-					@extend %heading-with-overline !optional;
+					@extend %heading-with-overline
+							!optional;
 				}
 			}
 		}
@@ -81,33 +107,39 @@
 		// .cm-line that is a heading
 		@extend %heading !optional;
 
-        &:has(+ %br-in-empty-line) {
-            // empty line after a heading
-            &:has(+ * + %blockquote-top-level) {
-                // heading followed by a top-level blockquote
-                &:has(+ * + %blockquote-top-level + .cm-line > br:only-child) {
-                    // heading followed by a top-level blockquote followed by a empty line
-                    @extend %heading-with-subtitle !optional; 
-                }
-            }
-        }
+		&:has(+ %br-in-empty-line) {
+			// empty line after a heading
+			&:has(+ * + %blockquote-top-level) {
+				// heading followed by a top-level blockquote
+				&:has(
+						+ *
+							+ %blockquote-top-level
+							+ .cm-line
+							> br:only-child
+					) {
+					// heading followed by a top-level blockquote followed by a empty line
+					@extend %heading-with-subtitle
+							!optional;
+				}
+			}
+		}
 
-        + %empty-line {
-            // empty line after a heading
-            &:has(+ %blockquote-top-level) {
-                &:has(+ * + .cm-line > br:only-child) {
-                    // empty line after a heading followed by a top-level blockquote
-                    @extend %empty-line-subtitle !optional;
-                }
-            }
-            + %blockquote-top-level {
-                // top-level blockquote after a heading
-                &:has(+ %br-in-empty-line) {
-                    // empty line after a heading followed by a top-level blockquote
-                    @extend %subtitle !optional;
-                }
-            }
-        }
+		+ %empty-line {
+			// empty line after a heading
+			&:has(+ %blockquote-top-level) {
+				&:has(+ * + .cm-line > br:only-child) {
+					// empty line after a heading followed by a top-level blockquote
+					@extend %empty-line-subtitle !optional;
+				}
+			}
+			+ %blockquote-top-level {
+				// top-level blockquote after a heading
+				&:has(+ %br-in-empty-line) {
+					// empty line after a heading followed by a top-level blockquote
+					@extend %subtitle !optional;
+				}
+			}
+		}
 
 		&.HyperMD-header-1 {
 			// h1
@@ -136,4 +168,4 @@
 	}
 }
 
-// TODO live preview version
+// TODO live preview selectors
